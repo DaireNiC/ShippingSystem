@@ -30,12 +30,10 @@ public class ShippingCompany {
 	@NotNull
 	private BigDecimal balance;
 	@OneToMany(mappedBy="shippingCompany")
-	private List<Ship>  
-	ships = new ArrayList<Ship>();
+	private List<Ship> ships = new ArrayList<Ship>();
 	
 	@OneToMany(mappedBy="shippingCompany")
-	private List<OrderInfo>
-	orders = new ArrayList<OrderInfo>();
+	private List<OrderInfo> orders = new ArrayList<OrderInfo>();
 
 	
 	public int getScid() {

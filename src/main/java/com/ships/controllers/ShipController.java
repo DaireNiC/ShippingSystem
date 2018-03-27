@@ -14,25 +14,6 @@ import com.ships.services.ShipService;
 @Controller
 public class ShipController {
 	
-	
-//	@Autowired
-//	private CustomerService custS;
-//	
-//	
-//// List Customers page -------------------------------------------------------------------------------------
-//	
-//	@RequestMapping(value = "/showCustomers", method = RequestMethod.GET)
-//	public String getCustomers(Model m) {
-//
-//		// Get all customers from customer service, same them to array
-//		ArrayList<Customer> customers = custS.getAll();
-//
-//		// Add to customer model object
-//		m.addAttribute("customers", customers);
-//
-//		return "showCustomers";
-//	}
-	
 	@Autowired
 	private ShipService shipService;
 	
