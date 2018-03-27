@@ -4,41 +4,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <style>
 table, th, td {
 	border: 1px solid black;
 }
 </style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Shipping Company Page</title>
+<title>Orders</title>
 </head>
 <body>
-	<h1>Companies</h1>
+	<h1>Orders</h1>
 	<table>
 		<tr>
-			<th>Name</th>
-			<th>Home Port</th>
-			<th>Balance</th>
-			<th>ships</th>
+			<th>Order Number</th>
+			<th>Shipping Company Name</th>
+			<th>Ship Name</th>
+			<th>Order Date</th>
 		</tr>
 
-		<c:forEach items="${shippingCompany}" var="shipC">
+		<c:forEach items="${ordersInfo}" var="orders">
 
 			<tr>
-				<td>${shipC.name}</td>
-				<td>${shipC.homePort}</td>
-				<td>${shipC.balance}</td>
-
-				<td>
-					<c:forEach items="${shipC.ships}" var="comp">
-						<li>${comp.name},${comp.metres}Mtrs,${comp.cost}</li>
-					</c:forEach>
-				</td>
+				<td>${orders.oid}</td>
+				<td>${orders.shippingCompany.name}</td>
+				<td>${orders.ship.name}</td>
+				<td>${orders.date}</td>
 			</tr>
 
 		</c:forEach>
 	</table>
-
+	
 	<a href="/index.html">Home</a>
 </body>
 </html>
