@@ -6,11 +6,32 @@
 <head>
 
 <style>
-table, th, td {
-	border: 1px solid black;
+table {
+	border-bottom: 1px solid gray;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+th {
+	border-bottom: 1px solid gray;
+	background: #0775d3;
+	margin-bottom: 22px;
+	padding: 10px;
+	color: #FFFFFF;
+	text-align: left;
+}
+
+td {
+	border-top: 1px solid #FFFFFF;
+	background: #D2DEEF;
+	text-align: left;
+}
+
+tr {
+	border-top: 1px solid #FFFFFF;
+	background: none repeat scroll 0 0 #EAEFF7;
+	text-align: left;
 }
 </style>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -37,7 +58,8 @@ table, th, td {
 
 		</c:forEach>
 	</table>
-	
+
+	<br>
 	<a href="/index.html">Home</a>
 </body>
 </html>
