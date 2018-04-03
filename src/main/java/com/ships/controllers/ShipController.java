@@ -32,9 +32,9 @@ public class ShipController {
 	}
 	
 	//add ship
-	// Get the page
+	// this is the get request which directs to the add ship page
 	@RequestMapping(value = "/addShip", method = RequestMethod.GET)
-	public String getProduct(@ModelAttribute("ship") Ship ship, HttpServletRequest h) {
+	public String getAddShip(@ModelAttribute("ship") Ship ship, HttpServletRequest h) {
 		
 		return "addShip";
 	}
