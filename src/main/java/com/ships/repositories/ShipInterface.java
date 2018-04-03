@@ -8,4 +8,5 @@ import com.ships.model.Ship;
 @Repository
 public interface ShipInterface extends CrudRepository<Ship, Long>{
 
+	 
 }

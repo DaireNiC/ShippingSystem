@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.ships.model.OrderInfo;
 import com.ships.model.Ship;
 import com.ships.services.OrderInfoService;
+import com.ships.services.ShipService;
 
 @Controller
 public class OrderInfoController {
 
 	@Autowired
 	private OrderInfoService orderInfoService;
+	@Autowired
+	private ShipService shipService;
 
 	@RequestMapping(value = "/showOrders", method=RequestMethod.GET)
 	public String getShips(Model m){
@@ -34,8 +37,17 @@ public class OrderInfoController {
 	@RequestMapping(value = "/createOrder", method = RequestMethod.GET)
 	public String getAddShip(Model m, @ModelAttribute("order") OrderInfo order, HttpServletRequest h) {
 
-		ArrayList<OrderInfo> ordersInfo = orderInfoService.getOrders();
-		m.addAttribute("countryList", ordersInfo);
+		ArrayList<Ship> ordersInfo = shipService.getShipWithoutCompany();
+		
+		ArrayList<Ship> orders = new ArrayList<Ship>();
+		
+		for (Ship ship : ordersInfo) {
+			System.out.println(ship.getShippingCompany());
+			if(ship.getShippingCompany() == null) {
+				orders.add(ship);
+			}
+		}
+		m.addAttribute("countryList", orders);
 		
 		return "createOrder";
 	}
