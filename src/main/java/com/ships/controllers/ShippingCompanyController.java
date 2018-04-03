@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ships.model.Ship;
 import com.ships.model.ShippingCompany;
 import com.ships.services.ShippingCompanyService;
 
@@ -32,7 +31,7 @@ public class ShippingCompanyController {
 
 	// this is the get request which directs to the add company page
 	@RequestMapping(value = "/addShippingCompany", method = RequestMethod.GET)
-	public String getAddShip(@ModelAttribute("ship") Ship ship, HttpServletRequest h) {
+	public String getAddShippingCompany(@ModelAttribute("shipC") ShippingCompany shipC, HttpServletRequest h) {
 
 		return "addShippingCompany";
 	}

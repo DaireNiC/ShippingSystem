@@ -8,6 +8,30 @@
 <title>Add Shipping Company</title>
 </head>
 <body>
+<!-- This is where the model-attribute is used from the controller -->
+	<form:form modelAttribute="shipC">
+		<h1>Add Ship</h1>
+		<table>
+			<tr>
+				<td>Company Name:</td>
+				<!-- the path has to be the same name as in the model -->
+				<td><form:input path="name"></form:input></td>
 
+			</tr>
+			<tr>
+				<td>Home Port:</td>
+				<td><form:input path="homePort"></form:input></td>
+			</tr>
+			<tr>
+				<td>Balance:</td>
+				<td><form:input path="balance"></form:input></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Add" /></td>
+			</tr>
+		</table>
+	</form:form>
+	<br>
+	<a href="/index.html">Home</a>
 </body>
 </html>
