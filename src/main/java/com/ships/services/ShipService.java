@@ -19,5 +19,4 @@ public class ShipService {
 		return (ArrayList<Ship>) shipInterface.findAll();	
 	}
 	
-
 }
