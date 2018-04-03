@@ -15,15 +15,17 @@
 				<td>Shipping Name:</td>
 				<td><form:select path="ship">
 					<c:forEach items="${countryList}" var="line">
-						<option><c:out value="${line}" /></option>
+						<option><c:out value="${line.name}; Cost = ${line.cost}" /></option>
 					</c:forEach>
 				</form:select></td>
 			</tr>
 			<tr>
 				<td>Shipping Company:</td>
-				<td><form:select path="ship">
-						<form:options items="${countryList}" />
-					</form:select></td>
+				<td><form:select path="shippingCompany">
+					<c:forEach items="${shippingCompany}" var="line">
+						<option><c:out value="${line.name}; Balance = ${line.balance}" /></option>
+					</c:forEach>
+				</form:select></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Order Ship" /></td>

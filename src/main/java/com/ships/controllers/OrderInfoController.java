@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ships.model.OrderInfo;
 import com.ships.model.Ship;
+import com.ships.model.ShippingCompany;
 import com.ships.services.OrderInfoService;
 import com.ships.services.ShipService;
+import com.ships.services.ShippingCompanyService;
 
 @Controller
 public class OrderInfoController {
@@ -23,6 +25,8 @@ public class OrderInfoController {
 	private OrderInfoService orderInfoService;
 	@Autowired
 	private ShipService shipService;
+	@Autowired
+	private ShippingCompanyService shipCompService;
 
 	@RequestMapping(value = "/showOrders", method=RequestMethod.GET)
 	public String getShips(Model m){
@@ -48,6 +52,10 @@ public class OrderInfoController {
 			}
 		}
 		m.addAttribute("countryList", orders);
+		
+		//////////////
+		ArrayList<ShippingCompany> o = shipCompService.getCompany();
+		m.addAttribute("shippingCompany", o);
 		
 		return "createOrder";
 	}
