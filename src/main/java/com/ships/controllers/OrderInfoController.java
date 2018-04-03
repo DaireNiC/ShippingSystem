@@ -32,8 +32,11 @@ public class OrderInfoController {
 
 	// this is the get request which directs to the create order page
 	@RequestMapping(value = "/createOrder", method = RequestMethod.GET)
-	public String getAddShip(@ModelAttribute("order") OrderInfo order, HttpServletRequest h) {
+	public String getAddShip(Model m, @ModelAttribute("order") OrderInfo order, HttpServletRequest h) {
 
+		ArrayList<OrderInfo> ordersInfo = orderInfoService.getOrders();
+		m.addAttribute("countryList", ordersInfo);
+		
 		return "createOrder";
 	}
 }
