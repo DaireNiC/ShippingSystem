@@ -11,7 +11,32 @@
 <body>
 	<!-- This is where the model-attribute is used from the controller -->
 	<form:form modelAttribute="ship">
-	<h1>Add Ship</h1>
+		<h1>Add Ship</h1>
+		<table>
+			<tr>
+				<td>Ship Name:</td>
+				<!-- the path has to be the same name as in the model -->
+				<td><form:input path="name"></form:input></td>
+
+			</tr>
+			<tr>
+				<td>Passengers:</td>
+				<td><form:input path="passengers"></form:input></td>
+			</tr>
+			<tr>
+				<td>Cost:</td>
+				<td><form:input path="cost"></form:input></td>
+			</tr>
+			<tr>
+				<td>Metres:</td>
+				<td><form:input path="metres"></form:input></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Add" /></td>
+			</tr>
+		</table>
 	</form:form>
+	<br>
+	<a href="/index.html">Home</a>
 </body>
 </html>
