@@ -24,7 +24,7 @@ public class ShipController {
 	@RequestMapping(value = "/showShips", method=RequestMethod.GET)
 	public String getShips(Model m){
 
-		ArrayList<Ship> ships = shipService.getShip();
+		ArrayList<Ship> ships = (ArrayList<Ship>) shipService.getShip();
 
 		m.addAttribute("ships", ships);
 
@@ -48,7 +48,7 @@ public class ShipController {
 		shipService.save(ship);
 
 		// this gets all the ships even the new one and then puts it into a arraylist
-		ArrayList<Ship> ships = shipService.getShip();
+		ArrayList<Ship> ships = (ArrayList<Ship>) shipService.getShip();
 		
 		// this adds the Array-list objects to the ships attribute 
 		m.addAttribute("ships", ships);

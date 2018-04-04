@@ -1,12 +1,13 @@
 package com.ships.controllers;
 
 import java.util.ArrayList;
-
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,26 +38,45 @@ public class OrderInfoController {
 		return "displayOrdersInfo";
 	}
 
-	// this is the get request which directs to the create order page
-	@RequestMapping(value = "/createOrder", method = RequestMethod.GET)
-	public String getAddShip(Model m, @ModelAttribute("order") OrderInfo order, HttpServletRequest h) {
-
-		ArrayList<Ship> ordersInfo = shipService.getShipWithoutCompany();
-		
-		ArrayList<Ship> orders = new ArrayList<Ship>();
-		
-		for (Ship ship : ordersInfo) {
-			System.out.println(ship.getShippingCompany());
-			if(ship.getShippingCompany() == null) {
-				orders.add(ship);
+	@RequestMapping(value = "/createOrder", method=RequestMethod.GET)
+	public String addPersonGET(Model model) {
+		// Get List of All Countries
+		ArrayList<Ship> ship = (ArrayList<Ship>) shipService.getShip();		
+		// Create List of Countries
+		Map<Long,String> shipList = new HashMap<Long,String>();
+		for (Ship c : ship) {
+			if(c.getShippingCompany() == null) {
+				shipList.put((long) c.getSid(), c.getName());
 			}
 		}
-		m.addAttribute("countryList", orders);
-		
-		//////////////
-		ArrayList<ShippingCompany> o = shipCompService.getCompany();
-		m.addAttribute("shippingCompany", o);
-		
+
+		model.addAttribute("shipList", shipList);
+
+		// Get List of All Countries
+		ArrayList<ShippingCompany> companies = (ArrayList<ShippingCompany>) shipCompService.getCompany();		
+		// Create List of Countries
+		Map<Long,String> compList = new HashMap<Long,String>();
+
+		for (ShippingCompany c : companies) {
+			compList.put((long) c.getScid(), c.getName());
+		}
+
+		model.addAttribute("compList", compList);
+
+		OrderInfo order = new OrderInfo();
+		model.addAttribute("order", order);
+
 		return "createOrder";
+	}
+
+	@RequestMapping(value = "/createOrder", method=RequestMethod.POST)
+	public String addPersonPOST(@ModelAttribute("order") OrderInfo order, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			return "createOrder";
+		}
+		else {
+			orderInfoService.save(order);
+			return "redirect:showOrders";
+		}
 	}
 }
