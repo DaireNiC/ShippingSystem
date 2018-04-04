@@ -1,5 +1,6 @@
 package com.ships.services;
 
+import java.math.MathContext;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ public class OrderInfoService {
 		shipC = SC.findOne(order.getShippingCompany().getScid());
 		
 		ship.setShippingCompany(shipC);
+
+		shipC.setBalance(shipC.getBalance().subtract(ship.getCost()));
 		
 		return orderInfoInterface.save(order);
 	}

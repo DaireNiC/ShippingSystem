@@ -71,7 +71,7 @@ public class OrderInfoController {
 
 	@RequestMapping(value = "/createOrder", method=RequestMethod.POST)
 	public String addPersonPOST(@ModelAttribute("order") OrderInfo order, BindingResult result, Model model) {
-		if(result.hasErrors()) {
+		if(result.hasErrors()) {			
 			return "createOrder";
 		}
 		else {
