@@ -46,7 +46,7 @@ public class OrderInfoController {
 		Map<Long,String> shipList = new HashMap<Long,String>();
 		for (Ship c : ship) {
 			if(c.getShippingCompany() == null) {
-				shipList.put((long) c.getSid(), c.getName());
+				shipList.put((long) c.getSid(), c.getName() + ";" + " Cost= " + c.getCost());
 			}
 		}
 
@@ -58,7 +58,7 @@ public class OrderInfoController {
 		Map<Long,String> compList = new HashMap<Long,String>();
 
 		for (ShippingCompany c : companies) {
-			compList.put((long) c.getScid(), c.getName());
+			compList.put((long) c.getScid(), c.getName() + ";" + " Balance= " +c.getBalance());
 		}
 
 		model.addAttribute("compList", compList);
