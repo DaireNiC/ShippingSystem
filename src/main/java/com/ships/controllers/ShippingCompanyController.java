@@ -3,15 +3,16 @@ package com.ships.controllers;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ships.model.Ship;
 import com.ships.model.ShippingCompany;
 import com.ships.services.ShippingCompanyService;
 
@@ -40,19 +41,15 @@ public class ShippingCompanyController {
 	// This is the post request which saves the shipping company object 
 	// then displays the new data on the display page 
 	@RequestMapping(value = "/addShippingCompany", method = RequestMethod.POST)
-	public String postProduct(@ModelAttribute("shipC") ShippingCompany shipC,HttpServletRequest h, Model m) {
+	public String postProduct(@Valid @ModelAttribute("shipC") ShippingCompany shipC,BindingResult result) {
 
-		// Pass the customer to the Customer Service for saving
-		shipCompService.save(shipC);
-
-		// this gets all the ships even the new one and then puts it into a arraylist
-		ArrayList<ShippingCompany> shippingCompany = shipCompService.getCompany();
-
-		// this adds the Array-list objects to the ships attribute 
-		m.addAttribute("shippingCompany", shippingCompany);
-
-		return "displayShippingCompany";
+		if(result.hasErrors()) {			
+			return "addShippingCompany";
+		}else{
+			// Pass the customer to the Customer Service for saving
+			shipCompService.save(shipC);
+			return "redirect:displayShippingCompany";
+		}
 	}
-
 
 }

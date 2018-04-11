@@ -16,15 +16,18 @@
 				<td>Company Name:</td>
 				<!-- the path has to be the same name as in the model -->
 				<td><form:input path="name"></form:input></td>
+				<td><form:errors path="name"></form:errors></td>
 
 			</tr>
 			<tr>
 				<td>Home Port:</td>
 				<td><form:input path="homePort"></form:input></td>
+				<td><form:errors path="homePort"></form:errors></td>
 			</tr>
 			<tr>
 				<td>Balance:</td>
 				<td><form:input path="balance"></form:input></td>
+				<td><form:errors path="balance"></form:errors></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Add" /></td>
