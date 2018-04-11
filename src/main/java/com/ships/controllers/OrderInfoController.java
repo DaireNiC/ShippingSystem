@@ -74,7 +74,7 @@ public class OrderInfoController {
 		if(result.hasErrors()) {			
 			return "createOrder";
 		}
-		else {
+		else{
 			orderInfoService.save(order);
 			return "redirect:showOrders";
 		}
