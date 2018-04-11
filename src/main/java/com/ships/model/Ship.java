@@ -19,6 +19,7 @@ public class Ship {
 	@NotNull
     @Size(min=1,max=250)
 	private String name;
+	@Min(value =0) 
 	private int passengers;
 	@NotNull
 	private BigDecimal cost;

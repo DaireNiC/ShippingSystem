@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,7 +72,7 @@ public class OrderInfoController {
 	}
 
 	@RequestMapping(value = "/createOrder", method=RequestMethod.POST)
-	public String addPersonPOST(@ModelAttribute("order") OrderInfo order, BindingResult result, Model model) {
+	public String addPersonPOST(@Valid @ModelAttribute("order") OrderInfo order, BindingResult result) {
 		if(result.hasErrors()) {			
 			return "createOrder";
 		}

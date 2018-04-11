@@ -16,10 +16,12 @@
    			<tr>
 				<td>Ship:</td>
 				<td><form:select path="ship.sid" items="${shipList}" /></td>
+				<td><form:errors path="ship.sid"></form:errors></td>
 			</tr>
 			<tr>
 				<td>Shipping Company:</td>
 				<td><form:select path="shippingCompany.scid" items="${compList}" /></td>
+				<td><form:errors path="shippingCompany.scid"></form:errors></td>
 			</tr>
 			<tr>
 				<td colspan="2">
