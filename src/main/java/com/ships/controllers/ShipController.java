@@ -3,10 +3,12 @@ package com.ships.controllers;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,18 +44,16 @@ public class ShipController {
 	// This is the post request which saves the ship object 
 	// then displays the new data on the display page 
 	@RequestMapping(value = "/addShip", method = RequestMethod.POST)
-	public String postProduct(@ModelAttribute("ship") Ship ship,HttpServletRequest h, Model m) {
+	public String postProduct(@Valid @ModelAttribute("ship") Ship ship,BindingResult result) {
 
-		// Pass the customer to the Customer Service for saving
-		shipService.save(ship);
-
-		// this gets all the ships even the new one and then puts it into a arraylist
-		ArrayList<Ship> ships = (ArrayList<Ship>) shipService.getShip();
+		if(result.hasFieldErrors()) {			
+			return "addShip";
+		}else{
+			// Pass the customer to the Customer Service for saving
+			shipService.save(ship);
+			return "redirect:showShips";
+		}
 		
-		// this adds the Array-list objects to the ships attribute 
-		m.addAttribute("ships", ships);
-
-		return "displayships";
 	}
 
 }
