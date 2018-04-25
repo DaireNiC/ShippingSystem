@@ -44,7 +44,7 @@ public class ShipController {
 	// This is the post request which saves the ship object 
 	// then displays the new data on the display page 
 	@RequestMapping(value = "/addShip", method = RequestMethod.POST)
-	public String postProduct(@Valid @ModelAttribute("ship") Ship ship,BindingResult result) {
+	public String postShip(@Valid @ModelAttribute("ship") Ship ship,BindingResult result) {
 
 		if(result.hasFieldErrors()) {			
 			return "addShip";

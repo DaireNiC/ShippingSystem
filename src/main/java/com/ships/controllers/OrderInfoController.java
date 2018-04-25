@@ -47,7 +47,7 @@ public class OrderInfoController {
 	}
 
 	@RequestMapping(value = "/createOrder", method=RequestMethod.GET)
-	public String addPersonGET(Model model) {
+	public String addShipGET(Model model) {
 		// Get List of All Countries
 		ArrayList<Ship> ship = (ArrayList<Ship>) shipService.getShip();		
 		// Create List of Countries
@@ -78,7 +78,7 @@ public class OrderInfoController {
 	}
 
 	@RequestMapping(value = "/createOrder", method=RequestMethod.POST)
-	public String addPersonPOST(@Valid @ModelAttribute("order") OrderInfo order, BindingResult result) {
+	public String addShipPOST(@Valid @ModelAttribute("order") OrderInfo order, BindingResult result) {
 		if(result.hasErrors()) {			
 			return "createOrder";
 		}

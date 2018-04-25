@@ -24,7 +24,7 @@ public class ShippingCompanyController {
 	private ShippingCompanyService shipCompService;
 
 	@RequestMapping(value = "/showShippingCompanies", method=RequestMethod.GET)
-	public String getShips(Model m){
+	public String getShipsCompanies(Model m){
 
 		ArrayList<ShippingCompany> shippingCompany = shipCompService.getCompany();
 		m.addAttribute("shippingCompany", shippingCompany);
@@ -42,7 +42,7 @@ public class ShippingCompanyController {
 	// This is the post request which saves the shipping company object 
 	// then displays the new data on the display page 
 	@RequestMapping(value = "/addShippingCompany", method = RequestMethod.POST)
-	public String postProduct(@Valid @ModelAttribute("shipC") ShippingCompany shipC,BindingResult result,Model m) {
+	public String postShippingCompanies(@Valid @ModelAttribute("shipC") ShippingCompany shipC,BindingResult result,Model m) {
 
 		if(result.hasErrors()) {			
 			return "addShippingCompany";
