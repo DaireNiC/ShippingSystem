@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.ships.model.OrderInfo;
 import com.ships.model.Ship;
@@ -46,10 +44,15 @@ public class OrderInfoController {
 		return "displayOrdersInfo";
 	}
 
+	//this return a get request for createOder and allows user to make a order
 	@RequestMapping(value = "/createOrder", method=RequestMethod.GET)
 	public String addShipGET(Model model) {
+		
 		// Get List of All Countries
-		ArrayList<Ship> ship = (ArrayList<Ship>) shipService.getShip();		
+		ArrayList<Ship> ship = (ArrayList<Ship>) shipService.getShips();	
+		// Get List of All Countries
+		ArrayList<ShippingCompany> companies = (ArrayList<ShippingCompany>) shipCompService.getCompany();		
+				
 		// Create List of Countries
 		Map<Long,String> shipList = new HashMap<Long,String>();
 		for (Ship c : ship) {
@@ -58,22 +61,22 @@ public class OrderInfoController {
 			}
 		}
 
-		model.addAttribute("shipList", shipList);
-
-		// Get List of All Countries
-		ArrayList<ShippingCompany> companies = (ArrayList<ShippingCompany>) shipCompService.getCompany();		
 		// Create List of Countries
 		Map<Long,String> compList = new HashMap<Long,String>();
 
 		for (ShippingCompany c : companies) {
 			compList.put((long) c.getScid(), c.getName() + ";" + " Balance= " +c.getBalance());
 		}
-
+		
+		//this is how we sending the maps to the jsp page
+		model.addAttribute("shipList", shipList);
 		model.addAttribute("compList", compList);
 
+		//create a model attribute here
 		OrderInfo order = new OrderInfo();
 		model.addAttribute("order", order);
 
+		//return the createorder page
 		return "createOrder";
 	}
 

@@ -18,6 +18,7 @@ import com.ships.repositories.ShippingCompanyInterface;
 @Service
 public class OrderInfoService {
 
+	//theses are the interfaces
 	@Autowired
 	private OrderInfoInterface orderInfoInterface;
 
@@ -27,14 +28,16 @@ public class OrderInfoService {
 	@Autowired
 	private ShipInterface SI;
 
+	//these are the models 
 	private Ship ship;
 	private ShippingCompany shipC;
 
+	//get the current date 
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private Date date = new Date();
 
+	// this gets all the orders from mysql
 	public ArrayList<OrderInfo> getOrders(){
-
 		return (ArrayList<OrderInfo>) orderInfoInterface.findAll();	
 	}
 	

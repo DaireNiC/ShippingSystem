@@ -28,7 +28,7 @@ public class ShippingCompany {
     @Size(min=1,max=250)
 	private String homePort;
 	@NotNull
-	@Min(value =0)
+	@Min(value = 0)
 	private BigDecimal balance;
 	@OneToMany(mappedBy="shippingCompany")
 	private List<Ship> ships = new ArrayList<Ship>();

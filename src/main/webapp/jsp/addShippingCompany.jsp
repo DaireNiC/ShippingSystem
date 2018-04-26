@@ -10,7 +10,7 @@
 <body>
 <!-- This is where the model-attribute is used from the controller -->
 	<form:form modelAttribute="shipC">
-		<h1>Add Ship</h1>
+		<h1>Add Ship Company</h1>
 		<table>
 			<tr>
 				<td>Company Name:</td>

@@ -1,7 +1,6 @@
 package com.ships.services;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +15,8 @@ public class ShipService {
 	private ShipInterface shipInterface;
 
 	//this method gets all the ships from the database
-	public List<Ship> getShip() {
-		return (List<Ship>) shipInterface.findAll();
+	public ArrayList<Ship> getShips() {
+		return (ArrayList<Ship>) shipInterface.findAll();
 	}
 	
 	//here this method will save the new ship details
@@ -26,11 +25,5 @@ public class ShipService {
 		//Passes ship object
 		//to be saved by the shipInterface
 		return shipInterface.save(ship);
-	}
-
-	//this method gets all the ships from the database
-	public ArrayList<Ship> getShipWithoutCompany(){
-		
-		return (ArrayList<Ship>) shipInterface.findAll();	
 	}
 }

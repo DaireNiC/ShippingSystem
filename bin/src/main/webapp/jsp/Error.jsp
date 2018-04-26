@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>SS RAD Final Project</title>
 </head>
 <body>
-<h1>Error</h1>
+<h1>Error Creating the order</h1>
+<h2>Shipping company balance is less than the cost of the ship - cannot place order</h2>
 </body>
 </html>

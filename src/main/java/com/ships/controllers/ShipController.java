@@ -26,7 +26,7 @@ public class ShipController {
 	@RequestMapping(value = "/showShips", method=RequestMethod.GET)
 	public String getShips(Model m){
 
-		ArrayList<Ship> ships = (ArrayList<Ship>) shipService.getShip();
+		ArrayList<Ship> ships = (ArrayList<Ship>) shipService.getShips();
 
 		m.addAttribute("ships", ships);
 

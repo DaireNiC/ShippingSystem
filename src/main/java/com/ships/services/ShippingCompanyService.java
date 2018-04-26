@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ships.model.Ship;
 import com.ships.model.ShippingCompany;
 import com.ships.repositories.ShippingCompanyInterface;
 

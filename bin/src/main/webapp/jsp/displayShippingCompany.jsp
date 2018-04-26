@@ -29,7 +29,7 @@
 
 				<td>
 					<c:forEach items="${shipC.ships}" var="comp">
-						<li>${comp.name},${comp.metres}Mtrs,${comp.cost}</li>
+						<li>${comp.name}, ${comp.metres} Mtrs,${comp.cost}</li>
 					</c:forEach>
 				</td>
 			</tr>
