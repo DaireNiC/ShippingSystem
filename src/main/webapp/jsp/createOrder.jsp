@@ -16,7 +16,7 @@
    			<tr>
 				<td>Ship:</td>
 				<td><form:select path="ship.sid" items="${shipList}" /></td>
-				<td><form:errors path="ship.sid"></form:errors></td>
+				<td><form:errors path="ship.sid" items="${shipList}" /></td>
 			</tr>
 			<tr>
 				<td>Shipping Company:</td>

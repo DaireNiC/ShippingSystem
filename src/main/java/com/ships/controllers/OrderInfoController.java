@@ -99,7 +99,7 @@ public class OrderInfoController {
 	}
 	//handles null pointers 
 	@ExceptionHandler(value = NullPointerException.class)
-	public String handleError(HttpServletRequest req, Exception e) {
+	public String handleError() {
 
 		return "ErrorPageForOrder";
 	}

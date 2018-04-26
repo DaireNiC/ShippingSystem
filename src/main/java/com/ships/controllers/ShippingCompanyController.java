@@ -48,14 +48,7 @@ public class ShippingCompanyController {
 		}else{
 			// Pass the customer to the Customer Service for saving
 			shipCompService.save(shipC);
-
-			// this gets all the ships even the new one and then puts it into a arraylist
-			ArrayList<ShippingCompany> shippingCompany = shipCompService.getCompany();
-
-			// this adds the Array-list objects to the ships attribute 
-			m.addAttribute("shippingCompany", shippingCompany);
-
-			return "displayShippingCompany";
+			return "redirect:showShippingCompanies";
 		}
 	}
 }

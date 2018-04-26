@@ -6,7 +6,7 @@
 <head>
 <link href="/css/style.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>SS RAD Final Project</title>
 </head>
 <body>
 	<h1>Ships</h1>
