@@ -2,7 +2,6 @@ insert into shipping_company (scid, balance, home_port, name) values (900, 20000
 insert into shipping_company (scid, balance, home_port, name) values (901, 97000000, "Portsmouth", "Cunard Line");
 insert into shipping_company (scid, balance, home_port, name) values (902, 97000000, "Rotterdam", "Maersk");
 insert into shipping_company (scid, balance, home_port, name) values (903, 107000000, "Miami", "Royal Caribbean");
-insert into shipping_company (scid, balance, home_port, name) values (904, 107000000, "Miami2", "Royal Caribbean2");
 
 insert into ship (sid, cost, name, passengers, metres, scid) values (100, 5000000, "Titanic", 1253, 269, 901);
 insert into ship (sid, cost, name, passengers, metres, scid) values (101, 4000000, "Olympic", 952, 269, 901);
